@@ -3,19 +3,15 @@
   import { goto } from '$app/navigation';
   import { supabase } from '~/lib/supabaseClient.js';
   import { projectStatusOptions, type ProjectStatus } from '~/lib/constans.js';
+  import { deleteProject, fetchProjects } from '~/lib/utils/projects.js';
+  import type { Project } from '~/lib/server/db/schema.js';
 
-  let projects: any[] = [];
+  let projects: Project[] = [];
   let loading = true;
   let error: string | null = null;
 
-  let userEmail: string | undefined = undefined;
-
-  onMount(async () => {
-    const { data: fetched, error: fetchError } = await supabase
-      .from('projects')
-      .select('*')
-      .order('created_at', { ascending: false });
-
+  const loadProjects = async () => {
+    const { fetchError, fetched } = await fetchProjects();
     loading = false;
 
     if (fetchError) {
@@ -23,7 +19,13 @@
     } else {
       projects = fetched ?? [];
     }
-  });
+  };
+
+  const handleDelete = async (projectId: number) => {
+    await deleteProject(projectId, loadProjects);
+  };
+
+  onMount(loadProjects);
 
   const handleLogout = async () => {
     const { error } = await supabase.auth.signOut();
@@ -69,6 +71,12 @@
               {projectStatusOptions[project.status as ProjectStatus]}
             </p>
           {/if}
+          <button
+            on:click={() => handleDelete(project.id)}
+            class="text-red-600 hover:text-red-800 text-sm"
+          >
+            Delete
+          </button>
         </li>
       {/each}
     </ul>

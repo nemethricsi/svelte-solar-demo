@@ -2,7 +2,7 @@ import { pgTable, serial, text, timestamp, pgEnum, uuid } from 'drizzle-orm/pg-c
 
 export const projectStatus = pgEnum('project_status', ['not_started', 'in_progress', 'completed']);
 
-export const project = pgTable('projects', {
+export const projects = pgTable('projects', {
   id: serial('id').primaryKey(),
   name: text('name').notNull(),
   description: text('description').notNull(),
@@ -14,3 +14,5 @@ export const project = pgTable('projects', {
     .defaultNow()
     .$onUpdate(() => new Date()),
 });
+
+export type Project = typeof projects.$inferSelect;
