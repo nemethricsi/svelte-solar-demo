@@ -46,7 +46,7 @@
     class="w-full p-2 border rounded"
   ></textarea>
   <select bind:value={status} class="w-full p-2 border rounded">
-    {#each Object.entries(projectStatusOptions) as [value, label]}
+    {#each Object.entries(projectStatusOptions) as [value, { label }]}
       <option {value}>{label}</option>
     {/each}
   </select>

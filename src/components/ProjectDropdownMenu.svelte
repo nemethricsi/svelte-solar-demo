@@ -1,6 +1,7 @@
 <script lang="ts">
   import EllipsisVertical from '@lucide/svelte/icons/ellipsis-vertical';
   import { onClickOutside } from '~/lib/utils/onClickOutside.js';
+
   export let onEdit: () => void;
   export let onDelete: () => void;
 
@@ -15,7 +16,7 @@
 </script>
 
 <div
-  class="relative inline-block text-left"
+  class="inline-block text-left absolute right-4 top-4"
   on:click={() => (open = !open)}
   on:keydown={handleKeydown}
   role="button"

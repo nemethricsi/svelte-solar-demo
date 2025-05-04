@@ -5,6 +5,7 @@
   import { deleteProject, fetchProjects } from '~/lib/utils/projects.js';
   import type { Project } from '~/lib/server/db/schema.js';
   import ProjectCard from '~/components/ProjectCard.svelte';
+  import Button from '~/components/ui/Button.svelte';
 
   let projects: Project[] = [];
   let loading = true;
@@ -41,14 +42,8 @@
   <div class="flex justify-between items-center mb-6">
     <h1 class="text-2xl font-bold">Your Projects</h1>
     <div class="flex items-center gap-2">
-      <button
-        class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:opacity-50"
-        on:click={() => goto('/dashboard/projects/new')}>New Project</button
-      >
-      <button
-        class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:opacity-50"
-        on:click={handleLogout}>Logout</button
-      >
+      <Button onClick={() => goto('/dashboard/projects/new')} label="New Project" />
+      <Button onClick={handleLogout} label="Logout" />
     </div>
   </div>
 
