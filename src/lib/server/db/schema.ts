@@ -5,7 +5,7 @@ export const projectStatus = pgEnum('project_status', ['not_started', 'in_progre
 export const project = pgTable('projects', {
   id: serial('id').primaryKey(),
   name: text('name').notNull(),
-  description: text('description'),
+  description: text('description').notNull(),
   status: projectStatus('status').default('not_started'),
   userId: uuid('user_id').notNull(),
 

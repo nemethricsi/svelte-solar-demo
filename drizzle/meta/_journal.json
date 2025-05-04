@@ -8,6 +8,13 @@
       "when": 1746375101086,
       "tag": "0000_little_moira_mactaggert",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1746377469510,
+      "tag": "0001_clammy_eternals",
+      "breakpoints": true
     }
   ]
 }
