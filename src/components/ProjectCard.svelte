@@ -17,9 +17,5 @@
       {projectStatusOptions[project.status]}
     </p>
   {/if}
-  <ProjectDropdownMenu
-    onDelete={() => handleDelete(project.id)}
-    onEdit={() => undefined}
-    onComplete={() => undefined}
-  />
+  <ProjectDropdownMenu onDelete={() => handleDelete(project.id)} onEdit={() => undefined} />
 </li>

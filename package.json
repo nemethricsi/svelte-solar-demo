@@ -70,8 +70,10 @@
 		"svelte"
 	],
 	"dependencies": {
+		"@lucide/svelte": "^0.507.0",
 		"@supabase/supabase-js": "^2.49.4",
 		"drizzle-orm": "^0.40.0",
+		"lucide-svelte": "^0.507.0",
 		"postgres": "^3.4.5"
 	},
 	"pnpm": {

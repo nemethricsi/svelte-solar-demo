@@ -1,17 +1,17 @@
 <script lang="ts">
+  import EllipsisVertical from '@lucide/svelte/icons/ellipsis-vertical';
   import { onClickOutside } from '~/lib/utils/onClickOutside.js';
   export let onEdit: () => void;
   export let onDelete: () => void;
-  export let onComplete: () => void;
 
   let open = false;
 
-  function handleKeydown(event: KeyboardEvent) {
+  const handleKeydown = (event: KeyboardEvent) => {
     if (event.key === 'Enter' || event.key === ' ') {
       open = !open;
       event.preventDefault();
     }
-  }
+  };
 </script>
 
 <div
@@ -21,7 +21,7 @@
   role="button"
   tabindex="0"
 >
-  <button class="text-gray-500 hover:text-black"> &#x22ee; </button>
+  <button class="text-gray-500 hover:text-black"><EllipsisVertical /></button>
 
   {#if open}
     <div
@@ -30,9 +30,6 @@
     >
       <button on:click={onEdit} class="block w-full px-4 py-2 text-left hover:bg-gray-100"
         >Edit</button
-      >
-      <button on:click={onComplete} class="block w-full px-4 py-2 text-left hover:bg-gray-100"
-        >Mark as completed</button
       >
       <button
         on:click={onDelete}
