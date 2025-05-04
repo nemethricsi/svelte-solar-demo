@@ -2,6 +2,7 @@
   import { onMount } from 'svelte';
   import { goto } from '$app/navigation';
   import { supabase } from '~/lib/supabaseClient.js';
+  import { projectStatusOptions, type ProjectStatus } from '~/lib/constans.js';
 
   let projects: any[] = [];
   let loading = true;
@@ -64,7 +65,9 @@
             <p class="text-sm text-gray-700 mt-1">{project.description}</p>
           {/if}
           {#if project.status}
-            <p class="text-xs text-gray-500 mt-2 italic">Status: {project.status}</p>
+            <p class="text-xs text-gray-500 mt-2 italic">
+              {projectStatusOptions[project.status as ProjectStatus]}
+            </p>
           {/if}
         </li>
       {/each}
