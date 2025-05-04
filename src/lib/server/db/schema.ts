@@ -1,15 +1,18 @@
-import { pgTable, serial, text, timestamp, pgEnum } from 'drizzle-orm/pg-core';
+import { pgTable, serial, text, timestamp, pgEnum, uuid } from 'drizzle-orm/pg-core';
 
 export const projectStatus = pgEnum('project_status', ['not_started', 'in_progress', 'completed']);
 
-export const project = pgTable('projects', {
-	id: serial('id').primaryKey(),
-	name: text('name').notNull(),
-	description: text('description'),
-	status: projectStatus('status').default('not_started'),
+export const projects = pgTable('projects', {
+  id: serial('id').primaryKey(),
+  name: text('name').notNull(),
+  description: text('description').notNull(),
+  status: projectStatus('status').default('not_started'),
+  userId: uuid('user_id').notNull(),
 
-	createdAt: timestamp('created_at', { withTimezone: true }).defaultNow(),
-	updatedAt: timestamp('updated_at', { withTimezone: true })
-		.defaultNow()
-		.$onUpdate(() => new Date()),
+  createdAt: timestamp('created_at', { withTimezone: true }).defaultNow(),
+  updatedAt: timestamp('updated_at', { withTimezone: true })
+    .defaultNow()
+    .$onUpdate(() => new Date()),
 });
+
+export type Project = typeof projects.$inferSelect;
