@@ -2,9 +2,10 @@
   import { onMount } from 'svelte';
   import { goto } from '$app/navigation';
   import { supabase } from '~/lib/supabaseClient.js';
-  import { projectStatusOptions, type ProjectStatus } from '~/lib/constans.js';
   import { deleteProject, fetchProjects } from '~/lib/utils/projects.js';
   import type { Project } from '~/lib/server/db/schema.js';
+  import ProjectCard from '~/components/ProjectCard.svelte';
+  import Button from '~/components/ui/Button.svelte';
 
   let projects: Project[] = [];
   let loading = true;
@@ -41,14 +42,8 @@
   <div class="flex justify-between items-center mb-6">
     <h1 class="text-2xl font-bold">Your Projects</h1>
     <div class="flex items-center gap-2">
-      <button
-        class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:opacity-50"
-        on:click={() => goto('/dashboard/projects/new')}>New Project</button
-      >
-      <button
-        class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:opacity-50"
-        on:click={handleLogout}>Logout</button
-      >
+      <Button onClick={() => goto('/dashboard/projects/new')} label="New Project" />
+      <Button onClick={handleLogout} label="Logout" />
     </div>
   </div>
 
@@ -61,23 +56,7 @@
   {:else}
     <ul class="space-y-4">
       {#each projects as project}
-        <li class="p-4 bg-white shadow rounded border">
-          <h2 class="text-lg font-semibold">{project.name}</h2>
-          {#if project.description}
-            <p class="text-sm text-gray-700 mt-1">{project.description}</p>
-          {/if}
-          {#if project.status}
-            <p class="text-xs text-gray-500 mt-2 italic">
-              {projectStatusOptions[project.status as ProjectStatus]}
-            </p>
-          {/if}
-          <button
-            on:click={() => handleDelete(project.id)}
-            class="text-red-600 hover:text-red-800 text-sm"
-          >
-            Delete
-          </button>
-        </li>
+        <ProjectCard {project} {handleDelete} />
       {/each}
     </ul>
   {/if}

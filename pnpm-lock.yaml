@@ -8,12 +8,18 @@ importers:
 
   .:
     dependencies:
+      '@lucide/svelte':
+        specifier: ^0.507.0
+        version: 0.507.0(svelte@5.28.2)
       '@supabase/supabase-js':
         specifier: ^2.49.4
         version: 2.49.4
       drizzle-orm:
         specifier: ^0.40.0
         version: 0.40.1(gel@2.1.0)(postgres@3.4.5)
+      lucide-svelte:
+        specifier: ^0.507.0
+        version: 0.507.0(svelte@5.28.2)
       postgres:
         specifier: ^3.4.5
         version: 3.4.5
@@ -675,6 +681,11 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
+
+  '@lucide/svelte@0.507.0':
+    resolution: {integrity: sha512-kXIg/2IHEo1bAwZG94fjA9O6+E3Sv5aQrW2yyPf4JvCYIUIF8DGLIQI4vfjoUyNq2dEX4cI33pZarzGOHr0npg==}
+    peerDependencies:
+      svelte: ^5
 
   '@modelcontextprotocol/sdk@1.11.0':
     resolution: {integrity: sha512-k/1pb70eD638anoi0e8wUGAlbMJXyvdV4p62Ko+EZ7eBe1xMx8Uhak1R5DgfoofsK5IBBnRwsYGTaLZl+6/+RQ==}
@@ -1806,6 +1817,11 @@ packages:
 
   lru-cache@10.4.3:
     resolution: {integrity: sha512-JNAzZcXrCt42VGLuYz0zfAzDfAvJWW6AfYlDBQyDV5DClI2m5sAmK+OIO7s59XfsRsWHp02jAJrRadPRGTt6SQ==}
+
+  lucide-svelte@0.507.0:
+    resolution: {integrity: sha512-qJRbz1dWyTzV05VaXIKhPeQ6mGBTIbKI05YNymym6QZSsn/mt7P154qr4SfKl+SEJlOmYPbHVjK1D1qZwa3r3w==}
+    peerDependencies:
+      svelte: ^3 || ^4 || ^5.0.0-next.42
 
   lz-string@1.5.0:
     resolution: {integrity: sha512-h5bgJWpxJNswbU7qCrV0tIKQCaS3blPDrqKWx+QxzuzL1zGUzij9XCWLrSLsJPu5t+eWA/ycetzYAO5IOMcWAQ==}
@@ -2986,6 +3002,10 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
+  '@lucide/svelte@0.507.0(svelte@5.28.2)':
+    dependencies:
+      svelte: 5.28.2
+
   '@modelcontextprotocol/sdk@1.11.0':
     dependencies:
       content-type: 1.0.5
@@ -4165,6 +4185,10 @@ snapshots:
       tslib: 2.8.1
 
   lru-cache@10.4.3: {}
+
+  lucide-svelte@0.507.0(svelte@5.28.2):
+    dependencies:
+      svelte: 5.28.2
 
   lz-string@1.5.0: {}
 

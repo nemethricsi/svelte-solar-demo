@@ -6,7 +6,7 @@ export const projects = pgTable('projects', {
   id: serial('id').primaryKey(),
   name: text('name').notNull(),
   description: text('description').notNull(),
-  status: projectStatus('status').default('not_started'),
+  status: projectStatus('status').default('not_started').notNull(),
   userId: uuid('user_id').notNull(),
 
   createdAt: timestamp('created_at', { withTimezone: true }).defaultNow(),
