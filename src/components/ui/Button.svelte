@@ -1,5 +1,5 @@
 <script lang="ts">
-  export let onClick: () => void;
+  export let onClick: (() => void) | undefined = undefined;
   export let label: string;
   export let type: 'button' | 'submit' | 'reset' = 'button';
 </script>
