@@ -3,6 +3,7 @@
   import type { DashboardLayoutData } from '~/types/auth.js';
   import { supabase } from '~/lib/supabaseClient.js';
   import { projectStatusOptions, type ProjectStatus } from '~/lib/constans.js';
+  import FormInput from '~/components/form/FormInput.svelte';
 
   export let data: DashboardLayoutData;
   const { session } = data;
@@ -33,13 +34,7 @@
 
 <form on:submit|preventDefault={handleCreate} class="space-y-4 max-w-md mx-auto mt-10">
   <h1 class="text-2xl font-bold">Create New Project</h1>
-  <input
-    bind:value={name}
-    type="text"
-    placeholder="Project name"
-    class="w-full p-2 border rounded"
-    required
-  />
+  <FormInput bind:value={name} placeholder="Project name" required />
   <textarea
     bind:value={description}
     placeholder="Description (optional)"

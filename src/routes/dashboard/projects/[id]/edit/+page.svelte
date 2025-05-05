@@ -1,7 +1,9 @@
 <script lang="ts">
   import { goto } from '$app/navigation';
-  import { projectStatusOptions } from '~/lib/constans.js';
   import type { PageData } from './$types.js';
+
+  import { projectStatusOptions } from '~/lib/constans.js';
+  import FormInput from '~/components/form/FormInput.svelte';
 
   export let data: PageData;
 
@@ -34,13 +36,7 @@
 
 <form on:submit|preventDefault={handleSubmit} class="space-y-4 max-w-md mx-auto mt-10">
   <h1 class="text-2xl font-bold">Edit "{data.project.name}"</h1>
-  <input
-    bind:value={data.project.name}
-    type="text"
-    placeholder="Project name"
-    class="w-full p-2 border rounded"
-    required
-  />
+  <FormInput bind:value={data.project.name} placeholder="Project name" required />
   <textarea
     bind:value={data.project.description}
     placeholder="Description (optional)"
