@@ -1,6 +1,8 @@
 <script lang="ts">
   import { supabase } from '~/lib/supabaseClient.js';
   import { goto } from '$app/navigation';
+  import Button from '~/components/ui/Button.svelte';
+  import FormInput from '~/components/form/FormInput.svelte';
 
   let email = '';
   let password = '';
@@ -21,9 +23,9 @@
 </script>
 
 <form on:submit|preventDefault={handleLogin} class="space-y-4 max-w-sm mx-auto mt-10">
-  <input bind:value={email} type="email" placeholder="Email" class="input" required />
-  <input bind:value={password} type="password" placeholder="Password" class="input" required />
-  <button type="submit" class="btn">Login</button>
+  <FormInput bind:value={email} type="email" placeholder="Email" required />
+  <FormInput bind:value={password} type="password" placeholder="Password" required />
+  <Button type="submit" label="Login" />
   <div>
     <a href="/sign-up" class="text-blue-500">Don't have an account? Sign up</a>
   </div>

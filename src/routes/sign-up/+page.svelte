@@ -1,6 +1,8 @@
 <script lang="ts">
   import { supabase } from '~/lib/supabaseClient.js';
   import { goto } from '$app/navigation';
+  import FormInput from '~/components/form/FormInput.svelte';
+  import Button from '~/components/ui/Button.svelte';
 
   let email = '';
   let password = '';
@@ -15,14 +17,12 @@
     if (signUpError) {
       error = signUpError.message;
     } else {
-      // Auth flow: ha Supabase "email confirmation"-t kér, akkor itt nem lesz session
       const {
         data: { session },
       } = await supabase.auth.getSession();
       if (session) {
         goto('/dashboard');
       } else {
-        // vagy mutathatsz egy visszaigazoló üzenetet
         goto('/');
       }
     }
@@ -30,11 +30,11 @@
 </script>
 
 <form on:submit|preventDefault={handleSignUp} class="space-y-4 max-w-sm mx-auto mt-10">
-  <input bind:value={email} type="email" placeholder="Email" class="input" required />
-  <input bind:value={password} type="password" placeholder="Password" class="input" required />
-  <button type="submit" class="btn">Sign up</button>
+  <FormInput bind:value={email} type="email" placeholder="Email" required />
+  <FormInput bind:value={password} type="password" placeholder="Password" required />
+  <Button type="submit" label="Sign up" />
 
   {#if error}
-    <p class="text-red-500 mt-2">{error}</p>
+    <p class="text-red-500 mt-2">Invalid credentials</p>
   {/if}
 </form>
