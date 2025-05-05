@@ -44,6 +44,12 @@
     options={Object.entries(projectStatusOptions).map(([value, { label }]) => ({ value, label }))}
   />
   <Button type="submit" label={loading ? 'Creating...' : 'Create Project'} disabled={loading} />
+  <Button
+    label="Cancel"
+    variant="secondary"
+    disabled={loading}
+    onClick={() => goto('/dashboard')}
+  />
   {#if error}
     <p class="text-red-500 mt-2">{error}</p>
   {/if}

@@ -29,10 +29,14 @@
   };
 </script>
 
-<form on:submit|preventDefault={handleSignUp} class="space-y-4 max-w-sm mx-auto mt-10">
+<form on:submit|preventDefault={handleSignUp} class="space-y-4 p-4 max-w-sm mx-auto mt-10">
+  <h1 class="text-2xl font-bold">Sign up</h1>
   <FormInput bind:value={email} type="email" placeholder="Email" required />
   <FormInput bind:value={password} type="password" placeholder="Password" required />
   <Button type="submit" label="Sign up" />
+  <div>
+    <a href="/" class="text-blue-500">Already have an account? Login</a>
+  </div>
 
   {#if error}
     <p class="text-red-500 mt-2">Invalid credentials</p>
