@@ -37,10 +37,22 @@
   };
 </script>
 
-<form on:submit|preventDefault={handleSubmit} class="space-y-4 max-w-md mx-auto mt-10">
+<form on:submit|preventDefault={handleSubmit} class="space-y-4 max-w-2xl mx-auto mt-10">
   <h1 class="text-2xl font-bold">Edit "{data.project.name}"</h1>
-  <FormInput bind:value={data.project.name} placeholder="Project name" required />
-  <FormTextArea bind:value={data.project.description} placeholder="Description (optional)" />
+  <FormInput
+    bind:value={data.project.name}
+    name="name"
+    label="Project name"
+    placeholder="John's project"
+    required
+  />
+  <FormTextArea
+    bind:value={data.project.description}
+    name="description"
+    label="Description"
+    placeholder="Description (optional)"
+    rows={6}
+  />
   <FormSelect
     bind:value={data.project.status}
     options={Object.entries(projectStatusOptions).map(([value, { label }]) => ({ value, label }))}

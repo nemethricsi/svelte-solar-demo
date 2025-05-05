@@ -17,7 +17,7 @@
       <span>{projectStatusOptions[project.status].label}</span>
     </div>
   </div>
-  <p class="text-sm text-gray-700 mt-1">{project.description}</p>
+  <p class="text-sm text-gray-700 line-clamp-3 mt-1">{project.description}</p>
   <ProjectDropdownMenu
     onDelete={() => handleDelete(project.id)}
     onEdit={() => goto(`/dashboard/projects/${project.id}/edit`)}

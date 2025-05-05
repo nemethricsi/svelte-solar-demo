@@ -35,10 +35,21 @@
   };
 </script>
 
-<form on:submit|preventDefault={handleCreate} class="space-y-4 max-w-md mx-auto mt-10">
+<form on:submit|preventDefault={handleCreate} class="space-y-4 max-w-2xl mx-auto mt-10">
   <h1 class="text-2xl font-bold">Create New Project</h1>
-  <FormInput bind:value={name} placeholder="Project name" required />
-  <FormTextArea bind:value={description} placeholder="Description (optional)" />
+  <FormInput
+    bind:value={name}
+    name="name"
+    label="Project name"
+    placeholder="John's project"
+    required
+  />
+  <FormTextArea
+    bind:value={description}
+    name="description"
+    label="Description"
+    placeholder="Description (optional)"
+  />
   <FormSelect
     bind:value={status}
     options={Object.entries(projectStatusOptions).map(([value, { label }]) => ({ value, label }))}

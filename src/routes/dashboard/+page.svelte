@@ -40,8 +40,8 @@
 
 <div class="max-w-3xl mx-auto mt-10 px-4">
   <div class="flex flex-col sm:flex-row sm:justify-between items-center mb-6">
-    <h1 class="text-2xl mb-4 sm:mb-0 font-bold">Your Projects</h1>
-    <div class="flex sm:ml-auto flex-col w-full sm:flex-row sm:items-center gap-2">
+    <h1 class="text-2xl mb-4 flex-grow sm:mb-0 font-bold">Your Projects</h1>
+    <div class="flex flex-col w-full sm:w-auto sm:flex-row sm:items-center gap-2">
       <Button onClick={() => goto('/dashboard/projects/new')} label="New Project" />
       <Button onClick={handleLogout} label="Logout" variant="secondary" />
     </div>

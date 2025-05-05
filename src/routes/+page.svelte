@@ -24,8 +24,22 @@
 
 <form on:submit|preventDefault={handleLogin} class="space-y-4 p-4 max-w-sm mx-auto mt-10">
   <h1 class="text-2xl font-bold">Login</h1>
-  <FormInput bind:value={email} type="email" placeholder="Email" required />
-  <FormInput bind:value={password} type="password" placeholder="Password" required />
+  <FormInput
+    bind:value={email}
+    type="email"
+    name="email"
+    label="Email"
+    placeholder="john@doe.com"
+    required
+  />
+  <FormInput
+    bind:value={password}
+    name="password"
+    label="Password"
+    type="password"
+    placeholder="********"
+    required
+  />
   <Button type="submit" label="Login" />
   <div>
     <a href="/sign-up" class="text-blue-500">Don't have an account? Sign up</a>
