@@ -1,7 +1,7 @@
 export const projectStatusOptions = {
-  not_started: { label: 'Not started', bg: 'bg-gray-200' },
-  in_progress: { label: 'In progress', bg: 'bg-amber-200' },
-  completed: { label: 'Completed', bg: 'bg-green-200' },
+  not_started: { label: 'Not started', style: 'bg-slate-200 text-slate-800' },
+  in_progress: { label: 'In progress', style: 'bg-amber-200 text-amber-800' },
+  completed: { label: 'Completed', style: 'bg-green-200 text-green-800' },
 } as const;
 
 export type ProjectStatus = keyof typeof projectStatusOptions;

@@ -22,7 +22,10 @@
   role="button"
   tabindex="0"
 >
-  <button class="text-gray-500 hover:text-black"><EllipsisVertical /></button>
+  <button
+    class="text-gray-500 hover:text-black hover:bg-slate-100 w-8 h-8 rounded flex items-center justify-center"
+    ><EllipsisVertical /></button
+  >
 
   {#if open}
     <div
