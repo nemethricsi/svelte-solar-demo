@@ -5,3 +5,13 @@ export const projectStatusOptions = {
 } as const;
 
 export type ProjectStatus = keyof typeof projectStatusOptions;
+
+export const checklistTemplate = [
+  { key: 'site_visit', label: 'Site visit' },
+  { key: 'contract_signed', label: 'Contract signed' },
+  { key: 'materials_ordered', label: 'Materials ordered' },
+  { key: 'installation_done', label: 'Installation done' },
+  { key: 'inspection_complete', label: 'Inspection complete' },
+] as const;
+
+export type ChecklistKey = (typeof checklistTemplate)[number]['key'];

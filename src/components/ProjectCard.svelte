@@ -9,7 +9,7 @@
 </script>
 
 <li class="p-4 pr-12 bg-white shadow rounded-md border relative">
-  <div class="flex items-center gap-2 mb-6">
+  <div class="flex flex-col-reverse sm:flex-row items-start sm:items-center gap-2 mb-6">
     <h2 class="text-lg font-semibold">{project.name}</h2>
     <div
       class="text-xs rounded py-px px-1 text-gray-500 {projectStatusOptions[project.status].style}"

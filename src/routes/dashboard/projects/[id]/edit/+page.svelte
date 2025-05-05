@@ -7,6 +7,7 @@
   import Button from '~/components/ui/Button.svelte';
   import FormTextArea from '~/components/form/FormTextArea.svelte';
   import FormSelect from '~/components/form/FormSelect.svelte';
+  import ProjectChecklist from '~/components/ProjectChecklist.svelte';
 
   export let data: PageData;
 
@@ -37,7 +38,10 @@
   };
 </script>
 
-<form on:submit|preventDefault={handleSubmit} class="space-y-4 max-w-2xl mx-auto mt-10">
+<form
+  on:submit|preventDefault={handleSubmit}
+  class="space-y-4 max-w-2xl mx-auto mt-10 flex flex-col gap-3"
+>
   <h1 class="text-2xl font-bold">Edit "{data.project.name}"</h1>
   <FormInput
     bind:value={data.project.name}
@@ -53,17 +57,21 @@
     placeholder="Description (optional)"
     rows={6}
   />
+  <ProjectChecklist />
   <FormSelect
+    label="Status"
     bind:value={data.project.status}
     options={Object.entries(projectStatusOptions).map(([value, { label }]) => ({ value, label }))}
   />
-  <Button type="submit" label={loading ? 'Saving...' : 'Update Project'} disabled={loading} />
-  <Button
-    label="Cancel"
-    variant="secondary"
-    disabled={loading}
-    onClick={() => goto('/dashboard')}
-  />
+  <div class="flex flex-col sm:flex-row sm:items-center gap-2">
+    <Button type="submit" label={loading ? 'Saving...' : 'Update Project'} disabled={loading} />
+    <Button
+      label="Cancel"
+      variant="secondary"
+      disabled={loading}
+      onClick={() => goto('/dashboard')}
+    />
+  </div>
   {#if error}
     <p class="text-red-500 mt-2">{error}</p>
   {/if}

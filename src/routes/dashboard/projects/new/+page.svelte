@@ -51,16 +51,19 @@
     placeholder="Description (optional)"
   />
   <FormSelect
+    label="Status"
     bind:value={status}
     options={Object.entries(projectStatusOptions).map(([value, { label }]) => ({ value, label }))}
   />
-  <Button type="submit" label={loading ? 'Creating...' : 'Create Project'} disabled={loading} />
-  <Button
-    label="Cancel"
-    variant="secondary"
-    disabled={loading}
-    onClick={() => goto('/dashboard')}
-  />
+  <div class="flex flex-col sm:flex-row sm:items-center gap-2">
+    <Button type="submit" label={loading ? 'Creating...' : 'Create Project'} disabled={loading} />
+    <Button
+      label="Cancel"
+      variant="secondary"
+      disabled={loading}
+      onClick={() => goto('/dashboard')}
+    />
+  </div>
   {#if error}
     <p class="text-red-500 mt-2">{error}</p>
   {/if}

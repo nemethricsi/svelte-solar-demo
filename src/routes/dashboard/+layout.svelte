@@ -18,5 +18,7 @@
 {#if redirecting}
   <p class="text-center mt-10">Redirecting...</p>
 {:else}
-  <slot />
+  <div class="p-4">
+    <slot />
+  </div>
 {/if}
