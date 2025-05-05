@@ -10,3 +10,7 @@ Simple CRUD application
 - Tailwind CSS
 - Typescript
 - Vitest
+
+**Deployment:**
+
+[https://svelte-solar-demo.vercel.app/](https://svelte-solar-demo.vercel.app/)
